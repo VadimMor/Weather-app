@@ -1,4 +1,4 @@
-const link = "http://api.weatherapi.com/v1/forecast.json?key=ef049295fd0d41f2851183108230901";
+const link = "https://api.weatherapi.com/v1/forecast.json?key=ef049295fd0d41f2851183108230901";
 
 const content = document.getElementById('content');
 const search = document.getElementById('search');
