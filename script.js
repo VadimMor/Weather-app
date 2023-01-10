@@ -18,8 +18,7 @@ let store = {
 const fetcData = async (props) => {
     store = {
         ...store,
-        isLoader: !store.isLoader,
-        status: 200
+        isLoader: !store.isLoader
     }
 
     renderComponent(store);
@@ -63,15 +62,10 @@ const getWeekDay = (dateTime) => {
 }
 
 const renderComponent = async (props) => {
-    if (props.status != 200) {
-        content.innerHTML = await renderError();
-
+    if (props.isLoader) {
+        content.innerHTML = await renderLoader();
     } else {
-        if (props.isLoader) {
-            content.innerHTML = await renderLoader();
-        } else {
-            content.innerHTML = await renderMetcast(props);
-        }
+        content.innerHTML = await renderMetcast(props);
     }
 }
 
@@ -84,11 +78,26 @@ const renderLoader = () => {
 }
 
 const renderMetcast = (props) => {
+    icon = ''
+    if ((props.condition.text).indexOf('снег') >= 0) {
+        icon = 'icon-snowy2'
+    } else if ((props.condition.text).indexOf('Ясно') >= 0 || props.condition.text == "Солнечно") {
+        icon = 'icon-sun2'
+    } else if ((props.condition.text) == "Переменная облачность") {
+        icon = 'icon-cloudy3'
+    } else if ((props.condition.text) == "Пасмурно") {
+        icon = 'icon-cloudy2'
+    } else if ((props.condition.text).indexOf('дожд') >= 0) {
+        icon = 'icon-rainy2'
+    } else if ((props.condition.text) == "Дымка") {
+        icon = 'icon-wind'
+    }
+    
     return `
         <div class="metcast">
             <div class="metcast_container">
                 <div class="left">
-                    <span class="today--icon icon-weather"></span>
+                    <span class="today--icon ${icon}"></span>
                     <span class="today--temperature">${Math.round(props.temp)}°</span>
                     <div class="today--smallinfo">
                         <span class="today--feelsliketemperature">Температура по ощущениям: ${Math.round(props.feelslike)}°</span>
