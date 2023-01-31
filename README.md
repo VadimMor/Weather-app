@@ -1,9 +1,13 @@
 # Weather-app
 Weather-app - cайт по прогназированию погоды, по ведённому названию города
 
-![photo](https://raw.githubusercontent.com/VadimMor/Weather-app/main/static/1673373263859.png)
+![photo](https://raw.githubusercontent.com/VadimMor/Image-Proj/main/weather-app.png)
 
 ___
 
-### Используемый API
+### Используемый стэк
+* React
+* React-Redux
+* Javascript
+### Используемый API для прогнозирования погоды
 API weather - [weatherapi.com](https://www.weatherapi.com/docs/)

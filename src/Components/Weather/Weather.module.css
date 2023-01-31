@@ -1,0 +1,45 @@
+.mainWeather {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    color: #fff;
+}
+.topContent {
+    display: flex;
+    align-items: flex-end;
+
+    font-size: 42px;
+}
+.topContent img {
+    filter: grayscale(100%)
+}
+.topContent sup {
+    font-size: 25px;
+}
+.bottomContent {
+    display: flex;
+    flex-direction: column;
+}
+.bottomContent span {
+    display: inline-block;
+    margin-bottom: -1px;
+
+    font-size: 14px;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.8);
+}
+.right {
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+}
+.right span:first-child {
+    font-size: 28px;
+}
+.right span:nth-child(n+2) {
+    font-size: 15px;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.8);
+}
